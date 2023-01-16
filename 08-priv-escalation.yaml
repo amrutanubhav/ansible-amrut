@@ -2,7 +2,7 @@
   hosts: all
   tasks:
     - name: Demo for shell
-      ansible.builtin.shell: uptime
+      ansible.builtin.shell: id
       register: OUT  #stores output of shell command and preserves it in the variable of our choice
 
     - name: Printing hello from task1 of play2
