@@ -18,4 +18,4 @@
 
     - name: Printing hello from task4 of play1
       ansible.builtin.debug:
-          msg: {{URL2}}
+          msg: "{{URL2}}"
