@@ -5,3 +5,5 @@
         ansible.builtin.copy:
           src: demo-vars.yaml
           dest: /tmp/demo.txt
+
+# copies demo-vars to all destinations machine in the inventory
