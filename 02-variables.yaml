@@ -31,4 +31,4 @@
     #       msg: "{{URL2}}"    #from files
 
           #syntax from cli : ansible-playbook -i inventory -e ansible_user=centos -e ansible_password=DevOps321 -e URL=amrutanubhav 02-variables.yaml
-          # cli > local > global
+          # cli > vars files > local > global
