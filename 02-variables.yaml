@@ -1,0 +1,17 @@
+- name: usage of variables
+  hosts: all
+  vars: 
+      URL: play.google.com
+      URL2: super.google.com
+  tasks:
+    - name: Printing hello from task1 of play2
+        ansible.builtin.debug:
+          msg: hello from {{URL}}
+
+    - name: Printing hello from task2 of play2
+        ansible.builtin.debug:
+          msg: hello from {{URL2}}
+
+    - name: Printing hello from task2 of play2
+        ansible.builtin.debug:
+          msg: "{{URL2}}"
