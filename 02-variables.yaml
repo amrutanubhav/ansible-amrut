@@ -17,5 +17,7 @@
           msg: "{{URL2}}"
 
     - name: Printing hello from task4 of play1
+      vars:
+        URL2: kakarot
       ansible.builtin.debug:
           msg: "{{URL2}}"
