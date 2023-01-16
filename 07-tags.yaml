@@ -30,3 +30,6 @@
         ansible.builtin.debug:
           msg: DBS completed
         tags: dev
+
+        #ansible-playbook -i inventory -e ansible_user=centos -e ansible_password=DevOps321 07-tags.yaml -t web
+        #specify which tasks to run based on tags
