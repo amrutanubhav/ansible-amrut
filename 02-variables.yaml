@@ -3,6 +3,8 @@
   vars: 
     URL: play.google.com
     URL2: super.google.com
+  vars_files:
+    - demo-vars.yaml
   tasks:
     - name: Printing hello from task1 of play1
       ansible.builtin.debug:
@@ -29,3 +31,4 @@
     #       msg: "{{URL2}}"    #from files
 
           #syntax from cli : ansible-playbook -i inventory -e ansible_user=centos -e ansible_password=DevOps321 -e URL=amrutanubhav 02-variables.yaml
+          # cli > local > global
