@@ -1,5 +1,6 @@
 - name: play1
   hosts: all
+  become: yes # elevates privilege to root
   tasks:
     - name: Demo for shell
       ansible.builtin.shell: id
