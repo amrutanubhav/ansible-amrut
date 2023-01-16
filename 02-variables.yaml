@@ -21,3 +21,11 @@
         URL2: kakarot
       ansible.builtin.debug:
           msg: "{{URL2}}"    #local variables have higher precedence over global variables
+    
+    # - name: Printing hello from task4 of play1
+    #   vars:
+    #     URL2: kakarot
+    #   ansible.builtin.debug:
+    #       msg: "{{URL2}}"    #from files
+
+          #syntax from cli : ansible-playbook -i inventory -e ansible_user=centos -e ansible_password=DevOps321 -e URL=amrutanubhav 02-variables.yaml
