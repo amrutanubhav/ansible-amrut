@@ -6,5 +6,5 @@
       register: OUT  #stores output of shell command and preserves it in the variable of our choice
 
     - name: Printing hello from task1 of play2
-        ansible.builtin.debug:
+      ansible.builtin.debug:
           msg: printing {{OUT}}
