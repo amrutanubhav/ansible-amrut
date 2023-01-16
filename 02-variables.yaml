@@ -10,14 +10,14 @@
 
     - name: Printing hello from task2 of play1
       ansible.builtin.debug:
-          msg: hello from "{{URL2}}"
+          msg: hello from "{{URL2}}" # call vairable via using  {{..}}
 
     - name: Printing hello from task3 of play1
       ansible.builtin.debug:
-          msg: "{{URL2}}"
+          msg: "{{URL2}}"     #for calling only variable "" needs to be added
 
     - name: Printing hello from task4 of play1
       vars:
         URL2: kakarot
       ansible.builtin.debug:
-          msg: "{{URL2}}"
+          msg: "{{URL2}}"    #local variables have higher precedence over global variables
