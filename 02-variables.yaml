@@ -4,14 +4,18 @@
     URL: play.google.com
     URL2: super.google.com
   tasks:
-    - name: Printing hello from task1 of play2
+    - name: Printing hello from task1 of play1
       ansible.builtin.debug:
           msg: hello from {{URL}}
 
-    - name: Printing hello from task2 of play2
+    - name: Printing hello from task2 of play1
       ansible.builtin.debug:
           msg: hello from "{{URL2}}"
 
-    - name: Printing hello from task2 of play2
+    - name: Printing hello from task3 of play1
       ansible.builtin.debug:
           msg: "{{URL2}}"
+
+    - name: Printing hello from task4 of play1
+      ansible.builtin.debug:
+          msg: {{URL2}}
