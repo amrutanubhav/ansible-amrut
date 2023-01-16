@@ -1,0 +1,4 @@
+- name: Demo to study facts
+  hosts: all
+  vars:
+  tasks: 
