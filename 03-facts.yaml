@@ -7,5 +7,5 @@
 
     - name: pull the distribution
       ansible.builtin.debug:
-        msg: Distribution is {{ansible_default_ipv4.macaddress}}
+        msg: Mac Address is {{ansible_default_ipv4.macaddress}}
     
