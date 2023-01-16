@@ -1,0 +1,5 @@
+- name: play1
+  hosts: all
+  tasks:
+    - name: Demo for shell
+      ansible.builtin.shell: uptime
