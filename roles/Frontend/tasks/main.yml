@@ -12,19 +12,19 @@
   ansible.builtin.unarchive:
     src: https://github.com/stans-robot-project/frontend/archive/main.zip
     dest: /tmp
-  remote_src: yes
+    remote_src: yes
 
 - name: Copy contents of frontend-main to html folder
   ansible.builtin.copy:
     src: /tmp/frontend-main/
     dest: /usr/share/nginx/html/
-  remote_src: yes
+    remote_src: yes
 
 - name: Copy localhost.conf to nginx default.d folder
   ansible.builtin.copy:
     src: /usr/share/nginx/html/localhost.conf
     dest: /etc/nginx/default.d/roboshop.conf
-  remote_src: yes
+    remote_src: yes
 
 - name: Enable service nginx
   ansible.builtin.service:
