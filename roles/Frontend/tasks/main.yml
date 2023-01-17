@@ -22,9 +22,8 @@
 
 - name: Copy localhost.conf to nginx default.d folder
   ansible.builtin.copy:
-    src: /tmp/frontend-main/localhost.conf
+    src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
-    remote_src: yes
 
 - name: Enable service nginx
   ansible.builtin.service:
