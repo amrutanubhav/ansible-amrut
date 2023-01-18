@@ -1,7 +1,7 @@
 [frontend]
 frontend-dev.roboshop.internal
 
-[mongodb]
+[Mongodb]
 mongodb-dev.roboshop.internal
 
 [catalogue]
