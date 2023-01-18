@@ -35,5 +35,19 @@
   community.general.npm:
     name: coffee-script
     path: /home/{{APPUSER}}/{{COMPONENT}}/
+
+- name: Update sytemd.service
+  ansible.builtin.replace:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
+    remote_src: yes
+    regexp: 'MONGO_DNSNAME'
+    replace: 'mongodb-dev.roboshop.internal'
     
+- name: Copy systemd.service file to systemd folder
+  ansible.builtin.copy:
+    src: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
+    dest: /etc/foo.conf
+    remote_src: yes
+    owner: root
+    group: root
 
