@@ -12,9 +12,6 @@
     path: /etc/mongod.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
-    backup: no
-    remote: yes
-    notify: Restart Mongo
 
 - name: Start service Mongodb, if not started
   ansible.builtin.service:
