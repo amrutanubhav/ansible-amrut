@@ -39,7 +39,6 @@
 - name: Update sytemd.service
   ansible.builtin.replace:
     path: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
-    remote_src: yes
     regexp: 'MONGO_DNSNAME'
     replace: 'mongodb-dev.roboshop.internal'
     
