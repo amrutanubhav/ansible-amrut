@@ -1,0 +1,13 @@
+- name: Configuring NodeJS repo
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+
+- name: Install NodeJS
+  ansible.builtin.package:
+    name: nodejs
+    state: present
+
+- name: Add the user roboshop
+  ansible.builtin.user:
+    name: roboshop
+    comment: roboshop service account user
+
