@@ -45,7 +45,7 @@
 - name: Copy systemd.service file to systemd folder
   ansible.builtin.copy:
     src: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
-    dest: /etc/foo.conf
+    dest: /etc/systemd/system/catalogue.service
     remote_src: yes
     owner: root
     group: root
