@@ -26,12 +26,8 @@
     dest: /etc/nginx/default.d/roboshop.conf
   notify: Restart Nginx
 
-- name: Enable service nginx
-  ansible.builtin.service:
-    name: nginx
-    enabled: yes
-
 - name: Start service nginx, if not started
   ansible.builtin.service:
     name: nginx
     state: started
+    enabled: yes
