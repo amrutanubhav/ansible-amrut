@@ -52,8 +52,7 @@
   ansible.builtin.template:
     src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
-    owner: root
-    group: root
+
 
 - name: Just force systemd to reread configs
   ansible.builtin.systemd:
