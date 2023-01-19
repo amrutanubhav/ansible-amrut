@@ -9,3 +9,9 @@ catalogue-dev.roboshop.internal
 
 [Redis]
 redis-dev.roboshop.internal
+
+[User]
+user-dev.roboshop.internal
+
+[Cart]
+cart-dev.roboshop.internal

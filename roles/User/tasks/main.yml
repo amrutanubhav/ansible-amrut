@@ -31,16 +31,22 @@
     owner: "{{APPUSER}}"
     group: "{{APPUSER}}"
 
-- name: Install node.js package.
+- name: Install node.js user package.
   community.general.npm:
-    name: coffee-script
+    name: user
     path: /home/{{APPUSER}}/{{COMPONENT}}/
 
 - name: Update systemd.service
   ansible.builtin.replace:
     path: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
-    regexp: 'MONGO_DNSNAME'
+    regexp: 'MONGO_ENDPOINT'
     replace: 'mongodb-dev.roboshop.internal'
+
+- name: Update systemd.service
+  ansible.builtin.replace:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
+    regexp: 'REDIS_ENDPOINT'
+    replace: 'redis-dev.roboshop.internal'
     
 - name: Copy systemd.service file to systemd folder
   ansible.builtin.template:
