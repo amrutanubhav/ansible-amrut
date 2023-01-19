@@ -2,6 +2,6 @@
   ansible.builtin.shell: curl -L https://raw.githubusercontent.com/stans-robot-project/{{COMPONENT}}/main/{{COMPONENT}}.repo -o /etc/yum.repos.d/redis.repo
 
 - name: Install Redis
-  ansible.builtin.package:
+  ansible.builtin.yum:
     name: {{COMPONENT}}-6.2.7
     state: present
