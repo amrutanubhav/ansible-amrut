@@ -7,3 +7,15 @@
   ansible.builtin.package:
     name: redis-6.2.9
     state: present
+
+- name: Update the BindIP from 127.0.0.1 to 0.0.0.0
+  ansible.builtin.replace:
+    path: /etc/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Update the BindIP from 127.0.0.1 to 0.0.0.0
+  ansible.builtin.replace:
+    path: /etc/redis/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
