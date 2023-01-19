@@ -36,9 +36,9 @@
     name: coffee-script
     path: /home/{{APPUSER}}/{{COMPONENT}}/
 
-- name: Update sytemd.service
+- name: Update systemd.service
   ansible.builtin.replace:
-    path: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
+    path: systemd.service
     regexp: 'MONGO_DNSNAME'
     replace: 'mongodb-dev.roboshop.internal'
     
