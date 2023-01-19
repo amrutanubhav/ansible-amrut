@@ -3,7 +3,7 @@
     src: redis.repo
     dest: /etc/yum.repos.d/redis.repo
 
-- name: Install Redis
+- name: Install REDIS
   ansible.builtin.package:
     name: redis-6.2.7
     state: present
