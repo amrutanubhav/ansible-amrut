@@ -26,6 +26,10 @@
     dest: /etc/nginx/default.d/roboshop.conf
   notify: Restart Nginx
 
+- name: Just force systemd to reread configs
+  ansible.builtin.systemd:
+    daemon_reload: yes
+
 - name: Start service nginx, if not started
   ansible.builtin.service:
     name: nginx
