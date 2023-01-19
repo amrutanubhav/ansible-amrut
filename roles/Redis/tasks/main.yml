@@ -3,5 +3,5 @@
 
 - name: Install Redis
   ansible.builtin.yum:
-    name: {{COMPONENT}}-6.2.7
+    name: "{{COMPONENT}}"-6.2.7
     state: present
