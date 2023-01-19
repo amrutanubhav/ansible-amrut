@@ -55,6 +55,6 @@
 
 - name: Enable and restart
   ansible.builtin.systemd:
-    name: catalogue
+    name: "{{COMPONENT}}"
     state: started
     enabled: yes
