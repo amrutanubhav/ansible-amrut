@@ -23,7 +23,7 @@
     path: /home/{{APPUSER}}/{{COMPONENT}}/
     state: absent
 
-- name: Change file ownership to {{APPUSER}}
+- name: Copy file to roboshop home directory
   ansible.builtin.copy:
     src: /tmp/{{COMPONENT}}-main/
     dest: /home/{{APPUSER}}/{{COMPONENT}}/
@@ -38,24 +38,23 @@
 
 - name: Update systemd.service
   ansible.builtin.replace:
-    path: systemd.service
+    path: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
     regexp: 'MONGO_DNSNAME'
     replace: 'mongodb-dev.roboshop.internal'
     
 - name: Copy systemd.service file to systemd folder
-  ansible.builtin.copy:
-    src: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
+  ansible.builtin.template:
+    src: systemd.service
     dest: /etc/systemd/system/catalogue.service
-    remote_src: yes
     owner: root
     group: root
 
-- name: Just force systemd to reread configs
-  ansible.builtin.systemd:
-    daemon_reload: yes
+# - name: Just force systemd to reread configs
+#   ansible.builtin.systemd:
+#     daemon_reload: yes
 
-- name: Enable and restart
-  ansible.builtin.systemd:
-    name: catalogue
-    state: started
-    enabled: yes
+# - name: Enable and restart
+#   ansible.builtin.systemd:
+#     name: catalogue
+#     state: started
+#     enabled: yes
