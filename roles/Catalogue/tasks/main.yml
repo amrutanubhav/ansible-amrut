@@ -49,13 +49,13 @@
     owner: root
     group: root
 
-- name: Just force systemd to reread configs
+- name: Just force systemd to reread configs and restart
   ansible.builtin.systemd:
     state: started
-    name: nginx
+    name: "{{COMPONENT}}"
     enabled: yes
     daemon_reload: yes
-    
+
 # - name: Just force systemd to reread configs
 #   ansible.builtin.systemd:
 #     daemon_reload: yes

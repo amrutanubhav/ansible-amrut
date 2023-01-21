@@ -53,13 +53,18 @@
     src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
 
-
-- name: Just force systemd to reread configs
+- name: Just force systemd to reread configs and restart
   ansible.builtin.systemd:
-    daemon_reload: yes
-
-- name: Enable and restart
-  ansible.builtin.systemd:
-    name: "{{COMPONENT}}"
     state: started
+    name: "{{COMPONENT}}"
     enabled: yes
+    daemon_reload: yes
+# - name: Just force systemd to reread configs
+#   ansible.builtin.systemd:
+#     daemon_reload: yes
+
+# - name: Enable and restart
+#   ansible.builtin.systemd:
+#     name: "{{COMPONENT}}"
+#     state: started
+#     enabled: yes
