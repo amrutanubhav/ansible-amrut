@@ -28,10 +28,13 @@
 
 - name: Just force systemd to reread configs
   ansible.builtin.systemd:
+    state: started
+    name: nginx
+    enabled: yes
     daemon_reload: yes
 
-- name: Start service nginx, if not started
-  ansible.builtin.service:
-    name: nginx
-    state: started
-    enabled: yes
+# - name: Start service nginx, if not started
+#   ansible.builtin.service:
+#     name: nginx
+#     state: started
+#     enabled: yes
