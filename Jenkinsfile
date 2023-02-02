@@ -15,7 +15,8 @@ pipeline {
             }
         }
 
-        stage('PR') {  
+        stage('PR') {
+            when { branch pattern: "PR-.*", comparator: "REGEXP" }
              steps {
                 sh "env"
                 sh "echo runs only on feature branch"
