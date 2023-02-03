@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        stage('PR') {
+        stage('PR for dry run') {
             when { branch pattern: "PR-.*", comparator: "REGEXP" }
              steps {
                 sh "env"
@@ -25,7 +25,7 @@ pipeline {
         }
 
         stage('main') {  
-            when { branch 'main' }
+            // when { branch 'main' }
              steps {
                 sh "env"
                 sh "echo runs only on main branch"
