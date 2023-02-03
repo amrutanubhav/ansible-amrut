@@ -25,10 +25,19 @@ pipeline {
         }
 
         stage('main') {  
-            // when { branch 'main' }
+            when { branch 'main' }
              steps {
                 sh "env"
                 sh "echo runs only on main branch"
+                // sh "ansible-playbook -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=Mongodb -e ENV=dev robot-dryrun.yml"
+            }
+        }
+
+        stage('runs against tags') {  
+            when { expression TAG_NAME ==~ ".*" }
+             steps {
+                sh "env"
+                sh "echo $TAG_NAME"
                 // sh "ansible-playbook -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=Mongodb -e ENV=dev robot-dryrun.yml"
             }
         }
