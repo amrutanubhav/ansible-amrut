@@ -41,7 +41,7 @@
 
 - name: Install node.js package.
   community.general.npm:
-    path: /home/{{APPUSER}}/{{COMPONENT}}/
+    path: /home/{{APPUSER}}/{{component}}/
 
 # - name: Update systemd.service
 #   ansible.builtin.replace:
@@ -67,4 +67,4 @@
 #     daemon_reload: yes
 
 - name: Set Hostname
-  ansible.builtin.shell: set-hostname {{COMPONENT}}
+  ansible.builtin.shell: set-hostname {{component}}

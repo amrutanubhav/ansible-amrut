@@ -1,19 +1,19 @@
-[Frontend]
+[frontend]
 frontend-dev.roboshop.internal
 
-[Mongodb]
+[mongodb]
 mongodb-dev.roboshop.internal
 
-[Catalogue]
+[catalogue]
 catalogue-dev.roboshop.internal
 
-[Redis]
+[redis]
 redis-dev.roboshop.internal
 
-[User]
+[user]
 user-dev.roboshop.internal
 
-[Cart]
+[cart]
 cart-dev.roboshop.internal
 
 [mysql]
