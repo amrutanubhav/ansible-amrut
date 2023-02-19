@@ -16,7 +16,7 @@
 - name: create maven package
   ansible.builtin.shell: mvn clean package && mv target/{{component}}-1.0.jar {{component}}.jar
   args:
-    chdir: /home/{{APPUSER}}/{{COMPONENT}}/
+    chdir: /home/{{APPUSER}}/{{component}}/
   become_user: "{{APPUSER}}" 
    
 - name: Calling config service function
@@ -25,4 +25,4 @@
     tasks_from: config-svc
 
 - name: Set-Hostname
-  ansible.builtin.shell: set-hostname {{COMPONENT}}
+  ansible.builtin.shell: set-hostname {{component}}
