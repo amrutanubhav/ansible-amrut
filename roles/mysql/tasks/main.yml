@@ -1,6 +1,6 @@
 - name: Download and Extract
   ansible.builtin.copy:
-    src: {{component}}.repo
+    src: "{{component}}".repo
     dest: /etc/yum.repos.d/{{component}}.repo
 
 - name: Install Mysql
