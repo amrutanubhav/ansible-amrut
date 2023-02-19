@@ -1,0 +1,16 @@
+- name: Download and Extract
+  ansible.builtin.copy:
+    src: {{COMPONENT}}.repo
+    dest: /etc/yum.repos.d/{{COMPONENT}}.repo
+
+- name: Install Mysql
+  ansible.builtin.package:
+    name: mysql-community-server
+    state: present
+
+- name: Enable and start {{COMPONENT}}
+  ansible.builtin.service:
+    state: started
+    name: mysqld
+    enabled: yes
+
