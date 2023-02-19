@@ -3,11 +3,13 @@
     src: https://github.com/stans-robot-project/{{component}}/archive/main.zip
     dest: /tmp
     remote_src: yes
+  ignore_errors: yes
 
 - name: Recursively remove Old Contents
   ansible.builtin.file:
     path: /home/{{APPUSER}}/{{component}}/
     state: absent
+  ignore_errors: yes
 
 - name: Copy file to roboshop home directory
   ansible.builtin.copy:
@@ -16,3 +18,4 @@
     remote_src: yes
     owner: "{{APPUSER}}"
     group: "{{APPUSER}}"
+  ignore_errors: yes
