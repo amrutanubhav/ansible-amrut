@@ -7,7 +7,7 @@
     state: present
 
 
-- name: Calling create-user function
+- name: Calling roboshop create-user function
   include_role:
     name: common
     tasks_from: create-user
@@ -65,3 +65,6 @@
 #     name: "{{COMPONENT}}"
 #     enabled: yes
 #     daemon_reload: yes
+
+- name: Set Hostname
+  ansible.builtin.shell: set-hostname {{COMPONENT}}
