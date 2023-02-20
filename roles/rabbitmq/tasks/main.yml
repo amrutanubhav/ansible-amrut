@@ -26,4 +26,4 @@
     state: present 
 
 - name: Set-Hostname
-  ansible.builtin.shell: set-hostname {{COMPONENT}} 
+  ansible.builtin.shell: set-hostname {{component}} 
