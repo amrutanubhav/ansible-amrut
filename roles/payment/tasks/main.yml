@@ -1,0 +1,23 @@
+- name: Install NodeJS
+  ansible.builtin.package:
+    name: "{{item}}"
+    state: present
+  loop:
+    - python36
+    - gcc
+    - python3-devel
+
+- name: Calling Nodejs function
+  include_role:
+    name: common
+    tasks_from: create-user
+
+- name: Calling Nodejs function
+  include_role:
+    name: common
+    tasks_from: download
+
+- name: Installing python dependencies 
+  ansible.builtin.pip:
+    requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
+    executable: pip3
