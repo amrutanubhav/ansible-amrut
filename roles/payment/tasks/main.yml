@@ -35,8 +35,7 @@
     replace: 'gid = "{{APPUSER_INFO.group}}"'
   remote_src: yes
 
-
-- name: Replace old gid
+- name: test
   ansible.builtin.shell: cat /home/roboshop/payment/payment.ini
   register: output
 
