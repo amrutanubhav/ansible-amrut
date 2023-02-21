@@ -18,8 +18,8 @@
     tasks_from: download
 
 - name: test
-   ansible.builtin.debug:
-     msg: "{{APPUSER_INFO}}"
+  ansible.builtin.debug:
+    msg: "{{APPUSER_INFO}}"
 # - name: Replace old uid
 #   ansible.builtin.replace:
 #     path: /home/roboshop/payment/payment.ini
