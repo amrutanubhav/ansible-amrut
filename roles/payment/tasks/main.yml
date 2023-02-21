@@ -25,13 +25,13 @@
   ansible.builtin.replace:
     path: /home/roboshop/payment/payment.ini
     regexp: 'uid = 1'
-    replace: 'uid = "{{APPUSER_INFO.uid}}"'
+    replace: 'uid = {{APPUSER_INFO.uid}}'
 
 - name: Replace old gid
   ansible.builtin.replace:
     path: /home/roboshop/payment/payment.ini
     regexp: 'gid = 1'
-    replace: 'gid = "{{APPUSER_INFO.group}}"'
+    replace: 'gid = {{APPUSER_INFO.group}}'
 
 - name: test
   ansible.builtin.shell: cat /home/roboshop/payment/payment.ini
