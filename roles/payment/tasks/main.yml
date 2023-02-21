@@ -21,3 +21,7 @@
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{component}}/requirements.txt
     executable: pip3
+
+- name: show uid and grpid of {{APPUSER}}
+  ansible.builtin.shell: id roboshop
+  register: 
