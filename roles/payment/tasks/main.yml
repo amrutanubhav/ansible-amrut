@@ -17,22 +17,32 @@
     name: common
     tasks_from: download
 
-- name: test
+- name: display user id and group id
   ansible.builtin.debug:
-    msg: "{{APPUSER_INFO}}"
-# - name: Replace old uid
-#   ansible.builtin.replace:
-#     path: /home/roboshop/payment/payment.ini
-#     regexp: 'uid = 1'
-#     replace: 'uid = "{{APPUSER_INFO.uid}}"'
-#   remote_src: yes
+    msg: "{{APPUSER_INFO}}"  ## we register this as a variable in create user common module
 
-# - name: Replace old gid
-#   ansible.builtin.replace:
-#     path: /home/roboshop/payment/payment.ini
-#     regexp: 'gid = 1'
-#     replace: 'gid = "{{APPUSER_INFO.group}}"'
-#   remote_src: yes
+- name: Replace old uid
+  ansible.builtin.replace:
+    path: /home/roboshop/payment/payment.ini
+    regexp: 'uid = 1'
+    replace: 'uid = "{{APPUSER_INFO.uid}}"'
+  remote_src: yes
+
+- name: Replace old gid
+  ansible.builtin.replace:
+    path: /home/roboshop/payment/payment.ini
+    regexp: 'gid = 1'
+    replace: 'gid = "{{APPUSER_INFO.group}}"'
+  remote_src: yes
+
+
+- name: Replace old gid
+  ansible.builtin.shell: cat /home/roboshop/payment/payment.ini
+  register: output
+
+- name: Replace old gid
+  ansible.builtin.debug:
+    msg: "{{output}}" 
 
 - name: Installing python dependencies 
   ansible.builtin.pip:
