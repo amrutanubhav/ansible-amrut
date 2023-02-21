@@ -12,16 +12,30 @@
     name: common
     tasks_from: create-user
 
-- name: Calling Nodejs function
+- name: Calling download function
   include_role:
     name: common
     tasks_from: download
+
+ name: test
+   ansible.builtin.debug:
+     msg: "{{APPUSER_INFO}}"
+# - name: Replace old uid
+#   ansible.builtin.replace:
+#     path: /home/roboshop/payment/payment.ini
+#     regexp: 'uid = 1'
+#     replace: 'uid = "{{APPUSER_INFO.uid}}"'
+#   remote_src: yes
+
+# - name: Replace old gid
+#   ansible.builtin.replace:
+#     path: /home/roboshop/payment/payment.ini
+#     regexp: 'gid = 1'
+#     replace: 'gid = "{{APPUSER_INFO.group}}"'
+#   remote_src: yes
 
 - name: Installing python dependencies 
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{component}}/requirements.txt
     executable: pip3
 
-- name: show uid and grpid of {{APPUSER}}
-  ansible.builtin.shell: id roboshop
-  register: 
