@@ -9,7 +9,7 @@
     src: http://172.31.15.122:8081/#browse/browse:{{component}}:{{component}}-{{version}}.zip
     dest: /home/{{APPUSER}}/{{component}}/
     remote_src: yes
-  ignore_errors: yes
+  # ignore_errors: yes
 
 # - name: Copy file to roboshop home directory
 #   ansible.builtin.copy:
