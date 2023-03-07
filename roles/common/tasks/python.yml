@@ -15,7 +15,7 @@
 - name: Calling download function
   include_role:
     name: common
-    tasks_from: download
+    tasks_from: download-nexus
 
 - name: display user id and group id
   ansible.builtin.debug:
