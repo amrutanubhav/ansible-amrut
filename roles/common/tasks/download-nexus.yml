@@ -4,6 +4,13 @@
     state: absent
   ignore_errors: yes
 
+- name: Creating App Directory
+  ansible.builtin.file:
+    path: /home/{{APPUSER}}/{{component}}
+    state: directory
+    mode: '0755'
+  become_user: "{{APPUSER}}"
+
 - name: Download and Extract {{component}}
   ansible.builtin.unarchive:
     src: http://172.31.15.122:8081/#browse/browse:{{component}}:{{component}}-{{version}}.zip
