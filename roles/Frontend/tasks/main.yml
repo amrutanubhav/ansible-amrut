@@ -13,7 +13,7 @@
     src: http://172.31.15.122:8081/#browse/browse:{{component}}:{{component}}-{{app-version}}.zip
     dest: /usr/share/nginx/html/
     remote_src: yes
-    
+
 #use ony when downloading from github
 # - name: Copy contents of frontend-main to html folder
 #   ansible.builtin.copy:
@@ -39,3 +39,5 @@
 #     name: nginx
 #     state: started
 #     enabled: yes
+- name: Set-Hostname
+  ansible.builtin.shell: set-hostname {{component}} 
