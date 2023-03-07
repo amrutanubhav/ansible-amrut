@@ -39,9 +39,9 @@
 #     owner: "{{APPUSER}}"
 #     group: "{{APPUSER}}"
 
-- name: Install node.js package.
-  community.general.npm:
-    path: /home/{{APPUSER}}/{{component}}/
+# - name: Install node.js package.
+#   community.general.npm:
+#     path: /home/{{APPUSER}}/{{component}}/
 
 # - name: Update systemd.service
 #   ansible.builtin.replace:
