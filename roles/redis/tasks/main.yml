@@ -5,7 +5,7 @@
 
 - name: Install REDIS
   ansible.builtin.package:
-    name: redis-6.2.9
+    name: redis-6.2.11
     state: present
 
 - name: Update the BindIP from 127.0.0.1 to 0.0.0.0
