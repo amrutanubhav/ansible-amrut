@@ -3,10 +3,18 @@
     name: nginx
     state: present
 
-- name: Clear html folder
+- name: Clearning Old Html Content 
   ansible.builtin.file:
     path: /usr/share/nginx/html/
-    state: absent
+    state: absent 
+  ignore_errors: yes
+
+- name: Creating App Directory
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/
+    state: directory
+    mode: '0755'
+  ignore_errors: yes
 
 - name: Download and Extract
   ansible.builtin.unarchive:
@@ -27,12 +35,23 @@
     dest: /etc/nginx/default.d/roboshop.conf
   notify: Restart Nginx
 
-- name: Just force systemd to reread configs
-  ansible.builtin.systemd:
-    state: started
+# - name: Just force systemd to reread configs
+#   ansible.builtin.systemd:
+#     state: started
+#     name: nginx
+#     enabled: yes
+#     daemon_reload: yes
+
+- name: Coping Nginx Config 
+  ansible.builtin.template:                    
+    src: nginx.conf  
+    dest: /etc/nginx/nginx.conf
+
+- name: Retarting frontend service 
+  ansible.builtin.service:
     name: nginx
-    enabled: yes
-    daemon_reload: yes
+    state: restarted
+    enabled: true  
 
 # - name: Start service nginx, if not started
 #   ansible.builtin.service:
