@@ -10,7 +10,7 @@
 
 - name: Download and Extract
   ansible.builtin.unarchive:
-    src: http://172.31.15.122:8081/#browse/browse:{{component}}:{{component}}-{{app-version}}.zip
+    src: http://172.31.15.122:8081/#browse/browse:{{component}}:{{component}}-{{version}}.zip
     dest: /usr/share/nginx/html/
     remote_src: yes
 
