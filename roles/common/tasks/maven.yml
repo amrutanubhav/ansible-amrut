@@ -13,11 +13,11 @@
     name: common
     tasks_from: download-nexus
 
-- name: create maven package
-  ansible.builtin.shell: mvn clean package && mv target/{{component}}-1.0.jar {{component}}.jar
-  args:
-    chdir: /home/{{APPUSER}}/{{component}}/
-  become_user: "{{APPUSER}}" 
+# - name: create maven package
+#   ansible.builtin.shell: mvn clean package && mv target/{{component}}-1.0.jar {{component}}.jar
+#   args:
+#     chdir: /home/{{APPUSER}}/{{component}}/
+#   become_user: "{{APPUSER}}" 
    
 - name: Calling config service function
   include_role:
